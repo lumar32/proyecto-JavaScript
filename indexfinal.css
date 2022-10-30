@@ -1,0 +1,119 @@
+body{
+    background-color: black;
+    color: white;
+    text-align: center;
+    justify-content: center;
+}
+
+#logoSakura{
+    max-width: 200px;
+}
+/* 
+.cardsUsuarios{
+    display: grid;
+    grid-template-columns: (2, 1fr);
+    margin-right: 1.5rem;
+} */
+
+#acumulador{
+    margin-bottom: 1rem;
+}
+
+#filtroSexo {
+    border: 1px solid white;
+    border-radius: 5px;
+}
+
+#filtroDNI {
+    margin-top: 1rem;
+    border: 1px solid white;
+    border-radius: 5px;
+}
+
+.contenedorForm{
+    display: flex;
+    justify-content: center;
+}
+
+#formNuevoUsuario{
+    margin-top: 1rem;
+/*     margin-bottom: 0rem; */
+    border: 1px solid white;
+    border-radius: 5px;
+    grid-template-columns: (2, 1fr);
+    width: 600px;
+    text-align: center;
+}
+
+#filtroSexo{
+    justify-content: center;
+    margin-top: 1rem;
+/*     margin-bottom: 0rem; */
+    border: 1px solid white;
+    border-radius: 5px;
+    grid-template-columns: (2, 1fr);
+    width: 600px;
+    text-align: center;
+}
+
+#filtroDNI{
+    justify-content: center;
+    margin-top: 1rem;
+/*     margin-bottom: 0rem; */
+    border: 1px solid white;
+    border-radius: 5px;
+    grid-template-columns: (2, 1fr);
+    width: 600px;
+    text-align: center;
+}
+
+label{
+    margin-left: 1rem;
+}
+
+#guardarUsuario{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    margin-left: 1rem;
+}
+#nombreCompleto{
+    margin-top: 1rem;
+}
+#telefonoContactoInput{
+    margin-bottom: 1rem;
+}
+/* input{
+    float: right;
+} */
+
+.card{
+    color: white;
+    width: 200px;
+    height: 510px;
+    margin: 1rem auto;
+    border: 1px solid white;
+    border-radius: 5px;
+    text-align: center;
+    background-color: rgba(169, 169, 169, 0.5);
+    font-size: 1rem;
+}
+
+.imgUsuario {
+    margin-top: 1rem;
+}
+
+.iconRRSS{
+    max-width: 25px;
+}
+
+/* .card .fotoCliente{
+    width: 30%;
+    height: 45%;
+    border: 1px;
+    border-radius: 5px;
+} */
+
+a {
+    text-decoration: none;
+    color: #ffffff; }
+

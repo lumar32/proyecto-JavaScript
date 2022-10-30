@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!--     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous"> -->
+    <link rel="stylesheet" href="./indexfinal.css">  
+    <title>Document</title>
+</head>
+<body>
+    <img id="logoSakura" src="./assets/logo-blanco.png" alt="">
+    <h1 id="tituloPrincipal">Sistema de uso interno para ingreso de préstamos otorgados.</h1>
+    <h4 class="subtitulo">Año 2022</h4>
+
+<article class="contenedorForm">
+    <form id="formNuevoUsuario">
+        <label id="nombreCompleto" for="nombreCompleto">Ingrese su nombre y apellido</label><br>
+        <input type="text" id="nombreCompletoInput" name="nombreCompleto"><br>
+        <label for="docIdentidad">Ingrese su DNI o ID de identidad</label><br>
+        <input type="text" id="docIdentidadInput" name="docIdentidad"><br>
+        <label for="sexo">Ingrese su sexo</label><br>
+        <input type="text" id="sexoInput" name="sexo"><br>
+        <label for="montoCredito">Ingrese el monto del préstamo que desea solicitar</label><br>
+        <input type="text" id="montoCreditoInput" name="montoCredito"><br>
+        <label for="cantidadCuotas">Ingrese la cantidad de cuotas en la que desea saldar su préstamo</label><br>
+        <input type="text" id="cantidadCuotasInput" name="cantidadCuotas"><br>
+        <label for="emailContacto">Ingrese su correo electrónico</label><br>
+        <input type="text" id="emailContactoInput" name="emailContacto"><br>
+        <label for="telefonoContacto">Ingrese su número de teléfono</label><br>
+        <input type="text" id="telefonoContactoInput" name="telefonoContacto"><br>
+    </form>
+</article>
+<button id="guardarUsuario">Ingresar Datos</button>
+
+
+<div class="usuarios">
+
+</div>
+
+<button class="info">
+    INFO
+</button> <br> <br>
+
+<button id="acumulador">
+    Monto total cedido en USD
+</button>
+
+<!-- <div class="loader">
+    Loading...
+</div> -->
+
+<div>
+    
+</div>
+
+<article class="contenedorForm">
+    <form id="filtroSexo">
+        <p><b><u>Indique el parámetro por el cual desea filtrar clientes</u></b></p>
+        <button id="filtroSexoM">Masculino</button>
+        <button id="filtroSexoF">Femenino</button>
+    <!--     <br>
+        <br>
+        <input id="submitFiltroSexo" type="submit" value="Filtrar"> -->
+    </form>
+</article>
+
+<article class="contenedorForm">
+    <form id="filtroDNI">
+        <label for="DNI">Ingrese el Documento de Identidad</label><br>
+        <input type="text" id="DNIinput" name="DNI"><br>
+    </form>
+</article>
+<button id="filtrar">Filtrar por DNI</button><br>
+<hr>
+
+
+<footer>
+    <p>Desarrollado en Buenos Aires, Argentina.</p>
+    <p>© 2022 Sakura Fund. Todos los derechos reservados.</p>
+    <div>
+        <a href="https://github.com/lumar32">HitHub</a>
+
+        <a href="https://twitter.com/LumarLumar_">
+            <img class="iconRRSS" src="./assets/icono-tw.png" alt="icono twitter">
+        </a>
+        <a href="https://www.linkedin.com/in/celsocastellaro/">
+            <img class="iconRRSS" src="./assets/icono-ln.png" alt="icono linkedin">
+        </a>
+     </div>
+</footer>
+   
+<!-- JS -->
+<script src="./indexfinal.js"></script>
+
+</body>
+</html>
