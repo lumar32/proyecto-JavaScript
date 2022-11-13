@@ -3,6 +3,12 @@
 //Primer RENDER
 window.addEventListener('DOMContentLoaded', dom);
 
+Toastify({
+    text: 'Bienvenido',
+    duration: 2500,
+    // gravity: 'bottom'
+    destination: 'https://www.google.com',
+}).showToast();
 
 //=====================================
 class Usuario {
@@ -82,6 +88,13 @@ const usuario2 = new Usuario(
 baseDatos.push(usuario2);
 
 //=====================================
+
+//guardo en storage el array baseDatos donde se fueron pusheando todos los nuevos usuarios
+// localStorage.setItem("directorioUsuarios", baseDatos)
+localStorage.setItem('arrayJSON', JSON.stringify(baseDatos));
+let arrayParseado = JSON.parse(localStorage.getItem('arrayJSON'));
+
+//=====================================
 //function con inputs para crear perfil de nuevos usuarios
 function nuevoUsuario() {
     let nombreCompletoInput = document.getElementById('nombreCompletoInput').value;
@@ -103,6 +116,8 @@ function nuevoUsuario() {
         'assets/logo-blanco.png'
     );
     baseDatos.push(usuarioCreado);
+    localStorage.setItem('arrayJSON', JSON.stringify(baseDatos));
+    arrayParseado = JSON.parse(localStorage.getItem('arrayJSON'));
     dom()
  /*    console.log(baseDatos) */
 }
@@ -111,6 +126,27 @@ function nuevoUsuario() {
 const ingresarUsuarioBtn = document.getElementById('guardarUsuario');
 ingresarUsuarioBtn.addEventListener("click", nuevoUsuario);
 
+//=====================================
+
+//Agregar notificacion al agregar nuevoUsuario
+function confirIngresoNuevoUsuario (){
+    Toastify({
+        text: "Cliente ingresado",
+        duration: 2500,
+        // gravity: 'bottom'
+        // destination: 'https://www.google.com'
+    }).showToast()
+}
+
+//=====================================
+
+//RECORREMOS EL ARRAY USUARIO E INDICAMOS QUE SE IMPRIMA EN CONSOLA LA INFO QUE CONTENGA
+baseDatos.forEach((usuario)=>console.table(usuario))
+
+//=====================================
+
+//RECORREMOS EL ARRAY Y LLAMAMOS LAS FUNCIONES
+baseDatos.forEach((usuario)=>usuario.mostrarDatos() + usuario.mensaje())
 
 //=====================================
 //ACUMULADOR DE LA CANTIDAD DE PESOS/DOLARES DADOS EN PRESTAMO/CREDITO
@@ -122,7 +158,14 @@ function acumCedido() {
     });
     let totalCredSolicitados = acumulador;
     console.log(totalCredSolicitados);
-    alert(`El total cedido en prestamo es de $${totalCredSolicitados}`)
+    /* alert(`El total cedido en prestamo es de $${totalCredSolicitados}`) */
+    Swal.fire({
+        title: `El total cedido en prestamo es de $${totalCredSolicitados}`,
+        text: false,
+        icon: 'info',
+        confirmButtonText: 'OK',
+        showConfirmButton: false,
+    });
 }
 btnMontoCedido.addEventListener('click', acumCedido);
 
@@ -209,7 +252,16 @@ function dom() {
                     totalCredCobrar[usuario.numUsuario]
                 }`
             );
-            alert(`El usuario ${usuario.nombreCompleto}, tiene una deuda total de $${totalCredCobrar[usuario.numUsuario]}`)
+            /* alert(`El usuario ${usuario.nombreCompleto}, tiene una deuda total de $${totalCredCobrar[usuario.numUsuario]}`) */
+            Swal.fire({
+                title: `El usuario ${usuario.nombreCompleto}, tiene una deuda total de $${
+                    totalCredCobrar[usuario.numUsuario]
+                }`,
+                text: false,
+                icon: 'info',
+                confirmButtonText: 'OK',
+                showConfirmButton: false,
+            });
         });
     });
 }
@@ -218,8 +270,15 @@ function dom() {
 //capturo btn info y le asigno evento
 let classInfo = document.getElementsByClassName('info')[0];
 function respuestaClick() {
-    console.log("Más info en Google")
-    alert("Más info en Google")
+/*     console.log("Más info en Google")
+    alert("Más info en Google") */
+    Swal.fire({
+        title: 'Acá no!',
+        text: `Buscá en Google vago`,
+        icon: 'info',
+        confirmButtonText: 'OK',
+        showConfirmButton: false,
+    });
 }
 classInfo.addEventListener('click', respuestaClick);
 
@@ -264,10 +323,52 @@ btnFiltroSexoF.addEventListener('click', e => {
 });
 
 //=====================================
+
+//Dark and Light mode
+//localStorage ponemos misma clave para que se pise y siempre sea UNO U OTRO
+let btnDarkMode = document.getElementById('botonDarkMode');
+let btnLightMode = document.getElementById('botonLightMode');
+//Operador logico OR
+let darkMode = localStorage.getItem('darkMode') || localStorage.setItem('darkMode', 'dark');
+
+if (darkMode == 'light') {
+    document.body.classList.add('lightMode');
+}
+
+btnDarkMode.addEventListener('click', () => {
+    //Retiro la clase antigua
+    document.body.classList.remove('lightMode');
+    document.body.classList.add('darkMode');
+    localStorage.setItem('darkMode', 'dark');
+});
+
+btnLightMode.addEventListener('click', () => {
+    //Retiro la clase antigua
+    document.body.classList.remove('darkMode');
+    document.body.classList.add('lightMode');
+    localStorage.setItem('darkMode', 'light');
+});
+
+let btnEliminarTheme = document.getElementById('eliminar');
+btnEliminarTheme.addEventListener('click', () => {
+    localStorage.removeItem('darkMode');
+});
+
+//cambiar logo si usuario elije lightMode
+//Funciona OK pero tengo que actualizar la pagina para que cambie el logo..
+//tengo que bajar con JSON el template (light o black Mode) que tenga guardado el usuario para evalular contra eso o esta ok evalular directamente darkMode == "light"?
+if (darkMode == 'light') {
+    document.getElementById('logoSakura').setAttribute('src', './assets/logo-negro.png');
+} else {
+    document.getElementById('logoSakura').setAttribute('src', './assets/logo-blanco.png');
+}
+
+
+//=====================================
+//PENDIENTES A INCLUIR EN EL PROYECTO
 /* 
 guardarUsuarioBtn.forEach((usuarioBtn)=>{
     usuarioBtn.addEventListener("click", ()=>{console.log(`El usuario ${nombreCompleto} ha sido agregado a la base de datos.`)})
  }) */
 
-//=====
 

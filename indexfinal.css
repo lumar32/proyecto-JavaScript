@@ -5,6 +5,23 @@ body{
     justify-content: center;
 }
 
+.BN{
+    margin-left: auto;
+    margin-right: auto;
+}
+.iconBN{
+    width: 50px;
+}
+
+.lightMode {
+    color:black;
+    background-color: white;
+}
+.darkMode{
+    color: white;
+    background-color: black;
+}
+
 #logoSakura{
     max-width: 200px;
 }
