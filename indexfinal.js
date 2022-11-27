@@ -25,10 +25,10 @@ class Usuario {
     ) {
         this.numUsuario = numUsuario;
         (this.nombreCompleto = nombreCompleto),
-            (this.docIdentidad = docIdentidad),
-            (this.sexo = sexo),
-            (this.montoCredito = montoCredito),
-            (this.cantidadCuotas = cantidadCuotas);
+        (this.docIdentidad = docIdentidad),
+        (this.sexo = sexo),
+        (this.montoCredito = montoCredito),
+        (this.cantidadCuotas = cantidadCuotas);
         this.emailContacto = email;
         this.telefonoContacto = telefono;
         this.imagen = imagen;
